@@ -33,9 +33,18 @@ class Dog(models.Model):
     favoritefood = models.CharField(max_length=100)
     favoritetoy = models.CharField(max_length=100)
     
+    def __str__(self):
+        return self.name    
+    
 class Breed(models.Model):
     name = models.CharField(max_length=100)
-    size = models.CharField(['Tiny', 'Small', 'Medium', 'Large'], max_length=6)
+    SIZE_CHOICES = [
+        ('Tiny', 'Tiny'),
+        ('Small', 'Small'),
+        ('Medium', 'Medium'),
+        ('Large', 'Large'),
+    ]
+    size = models.CharField(choices=SIZE_CHOICES, max_length=6)
     friendliness = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)])
     trainability = models.IntegerField(
