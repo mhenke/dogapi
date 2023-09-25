@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 # add lab to INSTALLED_APPS
 INSTALLED_APPS = [
+    'rest_framework',
     'lab.apps.LabConfig',
     'django.contrib.admin',
     'django.contrib.auth',

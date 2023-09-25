@@ -1,5 +1,11 @@
-from django.http import HttpResponse
+from rest_framework import viewsets
+from .models import Breed, Dog
+from .serializers import BreedSerializer, DogSerializer
 
+class BreedViewSet(viewsets.ModelViewSet):
+    queryset = Breed.objects.all()
+    serializer_class = BreedSerializer
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the lab index.")
+class DogViewSet(viewsets.ModelViewSet):
+    queryset = Dog.objects.all()
+    serializer_class = DogSerializer
