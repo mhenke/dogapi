@@ -1,4 +1,3 @@
-from os import name
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
@@ -35,7 +34,7 @@ class Dog(models.Model):
     favoritetoy = models.CharField(max_length=100)
     
 class Breed(models.Model):
-    name = models.CharField(max_length=100)  # noqa: F811
+    name = models.CharField(max_length=100)
     size = models.CharField(['Tiny', 'Small', 'Medium', 'Large'], max_length=6)
     friendliness = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)])
